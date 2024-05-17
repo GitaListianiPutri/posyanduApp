@@ -42,6 +42,8 @@ class HomeController extends Controller
         $pendaftarans = Pendaftaran::with('pertumbuhan');
     
         // Jika ada pencarian, filter data berdasarkan kriteria pencarian
+        // where : kondisi
+        // orwhere : menambah kondisi pencarian
         if ($request->has('search')) {
             $keyword = $request->query('search');
             $pendaftarans->where(function($query) use ($keyword) {

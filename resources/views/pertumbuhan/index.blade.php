@@ -25,7 +25,7 @@
         <div class="row">
             <div class="col-12">
               @if (Auth::user()->hasRole('admin'))
-              <a href="{{ route('admin.index2.create2') }}" class="btn btn-primary"><i class="fas fa-plus"></i>Tambah Pertumbuhan Anak</a>
+              <a href="{{ route('admin.index2.create2') }}" class="btn btn-primary"><i></i>Tambah Pertumbuhan Anak</a>
               @endif 
               <div class="card">
                 <div class="card-header">

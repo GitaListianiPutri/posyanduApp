@@ -25,7 +25,7 @@
         <div class="row">
             <div class="col-12">
               @if (Auth::user()->hasRole('admin'))
-              <a href="{{ route('admin.index.create') }}" class="btn btn-info"><i class="fas fa-plus"></i>Tambah Pendaftaran</a>             
+              <a href="{{ route('admin.index.create') }}" class="btn btn-primary"><i ></i>Pendaftaran</a>             
               @endif
               <div class="card">
                 <div class="card-header">
@@ -36,7 +36,6 @@
                       <div class="input-group input-group-sm" style="width: 150px;">
                     </form>
                       <input type="text" name="search" class="form-control float-right" placeholder="Search" value="{{ $request->get('search') }}">
-  
                       <div class="input-group-append">
                         <button type="submit" class="btn btn-default">
                           <i class="fas fa-search"></i>
@@ -50,22 +49,22 @@
                   <table class="table table-hover text-nowrap">
                     <thead>
                       <tr>
-                        <th>No</th>
-                        <th>ID Pendaftaran</th>
+                        {{-- <th>No</th> --}}
+                        <th>No Pendaftaran</th>
                         <th>NIK</th>
                         <th>Nama Anak</th>
                         <th>Nama Ortu</th>
                         <th>Alamat</th>
-                        <th>Telp</th>
-                        <th>Tgl Lahir</th>
-                        <th>Action</th>
+                        <th>No Telepon</th>
+                        <th>Tanggal Lahir</th>
+                        <th>Aksi</th>
                       </tr>
                     </thead>
                     <tbody>
                         @foreach ($data as $d)
                         <tr>
                             {{-- membuat nomor otomatis dari laravel --}}
-                             <td>{{ $loop->iteration }}</td>
+                             {{-- <td>{{ $loop->iteration }}</td> --}}
                             <td>{{ $d->id }}</td>
                             <td>{{ $d->nik }}</td>
                             <td>{{ $d->nama }}</td>
@@ -74,7 +73,9 @@
                             <td>{{ $d->no_telp }}</td>
                             <td>{{ $d->lahir }}</td>
                             <td>
+                              @if (!Auth::user()->hasRole('admin'))
                                 <a href="{{ route('peserta.index.detail',['id' => $d->id]) }}" class="btn btn-info"><i class="fas fa-eye"></i>Detail</a>
+                              @endif
                               @if (Auth::user()->hasRole('admin'))  
                                 <a href="{{ route('admin.index.edit',['id' => $d->id]) }}" class="btn btn-primary"><i class="fas fa-edit"></i></a>
                                 <a data-toggle="modal" data-target="#modal-hapus{{ $d->id }}" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>

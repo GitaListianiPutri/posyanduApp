@@ -6,7 +6,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">User</h1>
+            <h1 class="m-0">Data Pertumbuhan</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -28,7 +28,7 @@
                       <!-- general form elements -->
                       <div class="card card-primary">
                         <div class="card-header">
-                          <h3 class="card-title">Detail Pertumbuhan</h3>
+                          <h3 class="card-title">Riwayat Pertumbuhan Anak</h3>
                         </div>
                           <div class="card-body">
                             <div class="form-group">
@@ -66,7 +66,7 @@
                                 @endforeach
                             </tbody>
                         </table>
-                        <a href="{{ route('peserta.index2') }}" class="btn btn-info"><i class="fas fa-backward"></i>Kembali</a>
+                        <a href="{{ route('peserta.index2') }}" class="btn btn-primary"><i class="fas fa-backward"></i>Kembali</a>
                       </div>
                       <!-- /.card --> 
                     </div>
